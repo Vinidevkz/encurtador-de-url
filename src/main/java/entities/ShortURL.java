@@ -1,8 +1,6 @@
 package entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +17,8 @@ public class ShortURL {
     @Id
     private String hashId;
     private String originalUrl;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private Long userId;
 
 

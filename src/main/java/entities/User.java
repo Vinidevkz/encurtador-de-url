@@ -24,10 +24,13 @@ public class User {
     private String email;
     private String password;
 
-    @OneToMany
-    @JoinColumn(name = "userId")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private ArrayList<ShortURL> shortUrls = new ArrayList<>();
 
-
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 
 }
