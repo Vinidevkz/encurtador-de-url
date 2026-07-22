@@ -36,7 +36,7 @@ public class SecurityConfiguration {
                         }))
                 .authorizeHttpRequests(auth ->
                         //rotas liberadas sem segurança (login, cadastro, etc...):
-                        auth.requestMatchers("/v1/auth/**", "/h2-console/**").permitAll()
+                        auth.requestMatchers("/auth/**", "/h2-console/**").permitAll()
                                 //qualquer outra rota necessitará de autenticação:
                                 .anyRequest().authenticated()
                 )
