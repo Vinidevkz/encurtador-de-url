@@ -1,4 +1,4 @@
-package dtos;
+package com.vini.shorter.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 

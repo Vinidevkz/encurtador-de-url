@@ -1,7 +1,6 @@
-package repositories;
+package com.vini.shorter.repositories;
 
-import entities.User;
-import jakarta.validation.constraints.NotBlank;
+import com.vini.shorter.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
