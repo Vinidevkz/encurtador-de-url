@@ -1,4 +1,4 @@
-package entities;
+package com.vini.shorter.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

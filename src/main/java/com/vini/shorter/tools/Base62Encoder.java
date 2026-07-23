@@ -1,10 +1,13 @@
-package tools;
+package com.vini.shorter.tools;
+
+import org.springframework.stereotype.Component;
 
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.Instant;
 
+@Component
 public class Base62Encoder {
 
     private static final String alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";

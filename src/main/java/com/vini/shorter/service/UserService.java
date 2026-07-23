@@ -1,9 +1,10 @@
-package service;
+package com.vini.shorter.service;
 
-import entities.User;
+import com.vini.shorter.dtos.UserDTO;
+import com.vini.shorter.entities.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import repositories.UserRepository;
+import com.vini.shorter.repositories.UserRepository;
 
 import java.util.Optional;
 
@@ -13,11 +14,16 @@ public class UserService {
 
     public final UserRepository userRepository;
 
-    public void saveUser(User user){
+    public User saveUser(UserDTO userDTO){
+
+        User user = new User(userDTO.name(), userDTO.email(), userDTO.password());
+
         try {
-            userRepository.save(user);
+            User savedUser = userRepository.save(user);
+            return savedUser;
         }catch (Exception e) {
             System.out.println(e.getMessage());
+            throw  new RuntimeException(e.getMessage());
         }
     }
 

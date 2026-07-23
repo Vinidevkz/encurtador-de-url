@@ -1,7 +1,23 @@
 spring:
-  application:
-    name: shorter
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: user
+    password: vini123
+    driver-class-name: org.postgresql.Driver
 
-jwt:
-  expiration: ${JWT_EXPIRATION:900000} #15 MIN
-  key: ${JWT_KEY:Wu7O+UY5M+cPNPyCwAptuE8iH2Nqt0BIcCwBgFn4ChpAIsERuYIG6EsaK572LLyS7R4/7kToKjD+nRAFf8Aa7r7oXkTjzGVnoacYBFNqRhQkO94CAB9dPI6fUENnE6G4k/lswCF9ACPHIEprOh1BFb17zUrCTVRw5ISSKEQdsEynqx1nSBqI2rReKo0c1Y+362flk4ZB3t4F+mFQRai92y6MD69eDtAEM1wjSjO9vD3XyBgbZADNMAJu214UN07kXx49ALRaYlczBTd7mjHWgrNjJdy2gs2P2+Wbv3Ne} #
+  jpa:
+      hibernate:
+        ddl-auto: create
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+          # Força o dialeto explicitamente caso o Hibernate não consiga autodetectar na inicialização
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+        security: TRACE
