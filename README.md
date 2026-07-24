@@ -1,12 +1,9 @@
 
 # Encurtador de URL
 
-Feito com Spring Framework.
+Feito com Spring Framework, fiz esse projeto para entender melhor os conceitos de Arquitetura e Escalabilidade.
 
-
-## Screenshots
-
-![App Screenshot](https://dummyimage.com/468x300?text=App+Screenshot+Here)
+![Resume IA](https://github.com/Vinidevkz/encurtador-de-url/raw/v1/src/img/shorterSD.png)
 
 
 ## API Reference
