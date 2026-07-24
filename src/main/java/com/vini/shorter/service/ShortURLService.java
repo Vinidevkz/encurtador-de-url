@@ -2,7 +2,6 @@ package com.vini.shorter.service;
 
 import com.vini.shorter.dtos.OriginalUrlDTO;
 import com.vini.shorter.entities.ShortURL;
-import com.vini.shorter.entities.User;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,23 +17,15 @@ public class ShortURLService {
 
     private final Base62Encoder base62Encoder;
     private final ShortURLRepository shortURLRepository;
-    private final UserService userService;
 
     @Transactional
     public String createShortUrl(OriginalUrlDTO originalUrlDTO) throws NoSuchAlgorithmException{
-
         String originalUrl = originalUrlDTO.originalUrl();
-        Long userId = originalUrlDTO.userId();
 
         String hashCode = base62Encoder.encode(originalUrl);
-        Optional<User> opUser = userService.findById(userId);
 
-        if(opUser.isEmpty()){
-            throw new RuntimeException("Usuário não encontrado.");
-        }
-        User user = opUser.get();
 
-        ShortURL shortURL = new ShortURL(hashCode, originalUrl, user);
+        ShortURL shortURL = new ShortURL(hashCode, originalUrl);
 
         shortURLRepository.save(shortURL);
 

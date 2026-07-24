@@ -19,9 +19,7 @@ public class ShortURL {
     @Id
     private String hashId;
     private String originalUrl;
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime created_at;
@@ -31,10 +29,9 @@ public class ShortURL {
         this.created_at = LocalDateTime.now();
     }
 
-    public ShortURL(String hash, String originalUrl, User user){
+    public ShortURL(String hash, String originalUrl){
         this.hashId = hash;
         this.originalUrl = originalUrl;
-        this.user = user;
     }
 
 
